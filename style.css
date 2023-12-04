@@ -6,6 +6,156 @@
   font-family: sans-serif;
 }
 
-h1 {
-  color: blue;
+
+body {
+  background-color: #f6f1ef;
 }
+
+
+
+.fondoBg {
+  text-align: center;
+  background-color: #97db4e;
+  height: 450px;
+}
+
+.fondoBg img {
+  padding-top: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.fondoBg .imgNut {
+  width: 300px;
+}
+
+.expFood {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ajusTexto {
+  width: 30rem;
+}
+
+.ajusTexto h2 {
+  text-align: start;
+  font-size: 4rem;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.ajusTexto p {
+  text-align: justify;
+  margin-top: 10px;
+  line-height: 1.6;
+  font-family: 'Mukta', sans-serif;
+}
+
+.searchInp {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 30px;
+}
+
+.searchInp input {
+  width: 655px;
+  height: 52px;
+  border-radius: 20px;
+  background-color: #F0F0F0;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: none;
+  padding-left: 30px;
+  color: #989898;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.searchInp input:focus {
+  outline: none;
+}
+
+.searchInp button {
+  width: 158px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background-color: #F0F0F0;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: none;
+  color: #989898;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.searchInp button:hover {
+  cursor: pointer;
+  background-color: #d2d2d2;
+}
+
+.filAllFood {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.filtrar {
+  height: 100%;
+  width: 60%;
+}
+
+.containerFood {
+  height: 100%;
+  width: 80%;
+}
+
+#allFood {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 150px; 
+  padding: 2%;
+}
+
+.cardFood {
+  background-color: white;
+  width: 320px;
+  height: 450px;
+  text-align: center;
+  padding-top: 20px;
+  box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 36px;
+
+}
+
+.cardFood img{
+  width: 200px;
+  border-radius: 20px;
+}
+
+.desc p{
+  color: #97db4e;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.cardFood ul{
+  list-style-position: inside;
+  padding-left: 3.5rem;
+  line-height: 25px;
+  margin-top: 10px;
+}
+
+.cardFood li{
+  text-align: start;
+}
+
