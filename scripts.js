@@ -243,13 +243,13 @@ function createCheckboxes() {
     const value = unitInfo[1];
 
     if (key.startsWith("fil")) {
-      if (elementoSecundario) elementoPrincipal.appendChild(elementoSecundario);
       elementoSecundario = document.createElement("div");
       elementoSecundario.className = upperCaseChange(key);
       const label = document.createElement("label");
       label.value = key.substring(3);
       label.textContent = value;
       elementoSecundario.appendChild(label);
+      elementoPrincipal.appendChild(elementoSecundario);
     } else {
       const label = document.createElement("label");
       const input = document.createElement("input");
