@@ -119,6 +119,10 @@ function filterQueryString(filter) {
 async function fetchApi() {
   const busquedaComida = document.getElementById("serachFood").value;
 
+  if (busquedaComida == "") {
+    showAlert("Por favor, complete el campo de búsqueda")
+  }
+
   const apiUrl = "https://api.edamam.com/api/recipes/v2?type=public";
   const apiID = "8f1264ad";
   const apiKey = "aad51e9746e7e84fff6e179fd6e8de1d";
@@ -143,6 +147,25 @@ function displayFood(foodData) {
   const allFoodContainer = document.getElementById("allFood");
   allFoodContainer.innerHTML = "";
 
+  if (foodData.count === 0) {
+    const containerFoods = document.querySelector('.containerFood');
+    const noResultsDiv = document.createElement("div");
+    noResultsDiv.className = "noResults";
+
+    if (!document.querySelector('.noResults img')) {
+      noResultsDiv.innerHTML = `
+      <img src="img/NoHayComida4.png" style="margin: 50% auto; display: block;"/>
+      `;
+    }
+
+    containerFoods.appendChild(noResultsDiv);
+  } else {
+    const noResultsImage = document.querySelector('.noResults img');
+    if (noResultsImage) {
+      noResultsImage.style.display = 'none';
+    }
+  }
+
   foodData.hits.forEach((hit) => {
     const foodDiv = document.createElement("div");
 
@@ -154,9 +177,8 @@ function displayFood(foodData) {
 
     foodDiv.innerHTML = `
         <div class="cardFood"> 
-            <img src="${hit.recipe.image || ""}" alt="${
-      hit.recipe.label || ""
-    }"/>
+            <img src="${hit.recipe.image || ""}" alt="${hit.recipe.label || ""
+      }"/>
             <div class="desc">
                 <p>${hit.recipe.label}</p>
                 <ul>
@@ -188,7 +210,7 @@ function createCheckboxes() {
 
   for (const key in filters) {
     const elementoSecundario = document.createElement("div");
-    elementoSecundario.className = upperCaseChange(key);
+    elementoSecundario.className = `filter-${key} ${upperCaseChange(key)}`;
     const label = document.createElement("label");
     label.value = key;
     label.textContent = filters[key].value;
@@ -205,6 +227,8 @@ function createCheckboxes() {
       input.name = key;
       input.value = inputValue;
       label.append(input, nombreAMostrar);
+      input.style.marginRight = "5px";
+      label.style.color = "black";
       elementoSecundario.appendChild(label);
     }
   }
@@ -214,7 +238,55 @@ function upperCaseChange(string) {
   return "fil" + string.charAt(0).toUpperCase() + string.substring(1);
 }
 
+let alertIndex = 0;
+
+function showAlert(message) {
+  var modal = document.createElement("div");
+  modal.className = "modalShowAlert";
+  modal.setAttribute("data-index", alertIndex);
+  document.body.classList.add("modal-open");
+
+  var modalContent = document.createElement("div");
+  modalContent.className = "modal-content";
+
+  modalContent.innerHTML = `
+    <div class="conText">
+      <img src="img/iconAlert.png">
+      <p>${message}</p>
+      <span class="close" onclick="closeModal()">&times;</span>
+    </div>
+  `;
+
+  modal.appendChild(modalContent);
+
+  document.body.appendChild(modal);
+
+  modal.style.display = "block";
+
+  modal.style.top = `${alertIndex * 100}px`;
+
+  alertIndex++;
+}
+
+function closeModal() {
+  var modal = document.querySelector(".modalShowAlert:last-child");
+  if (modal) {
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+    document.body.removeChild(modal);
+
+    alertIndex--;
+
+    const showAlertCloseAll = document.querySelectorAll('.modalShowAlert');
+    showAlertCloseAll.forEach((alert, i) => {
+      alert.style.top = `${i * 100}px`;
+      alert.setAttribute('data-index', i);
+    });
+  }
+}
+
 // EVENTS
 document.getElementById("serachFood").addEventListener("keydown", busquedaKey);
 document.getElementById("btnSearch").addEventListener("click", buttonBusqueda);
 document.addEventListener("DOMContentLoaded", createCheckboxes);
+

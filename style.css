@@ -103,7 +103,7 @@ body {
 
 .filAllFood {
   display: grid;
-  grid-template-columns: 1fr 4.3fr;;
+  grid-template-columns: 1fr 4.3fr;
   margin-top: 40px;
   margin-left: 50px;
 }
@@ -114,18 +114,18 @@ body {
   width: 60%;
 }
 
-.filtrar h2{
+.filtrar h2 {
   color: #97db4e;
   border-bottom: 2px solid #97db4e;
   padding-bottom: 5px;
 }
 
 
-.filDiet, 
+.filDiet,
 .filHealth,
-.filCuisineType, 
-.filMealType, 
-.filDishType{
+.filCuisineType,
+.filMealType,
+.filDishType {
   border-bottom: 2px solid #97db4e;
   padding-bottom: 5px;
 }
@@ -145,7 +145,11 @@ body {
 .filMealType label,
 .filDishType label {
   display: block;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
+}
+
+.filter-diet {
+  color: #97db4e;
 }
 
 .containerFood {
@@ -156,7 +160,7 @@ body {
 #allFood {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 150px; 
+  gap: 150px;
   padding: 2%;
 }
 
@@ -171,26 +175,93 @@ body {
 
 }
 
-.cardFood img{
+.cardFood img {
   width: 200px;
   border-radius: 20px;
 }
 
-.desc p{
+.desc p {
   color: #97db4e;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 30px;
   margin-top: 10px;
 }
 
-.cardFood ul{
+.cardFood ul {
   list-style-position: inside;
   padding-left: 3.5rem;
   line-height: 25px;
   margin-top: 10px;
 }
 
-.cardFood li{
+.cardFood li {
   text-align: start;
 }
 
+.conText {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 20px; 
+  background-color: #ffb30031; 
+  border-radius: 15px;
+}
+
+.conText img {
+  width: 40px; 
+  margin-right: 10px; 
+}
+
+.conText p {
+  flex-grow: 1; 
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.modalShowAlert {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: fadeInDown 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 0 49%;
+  width: 50%;
+  transform: translateY(100px);
+  border-radius: 15px;
+  pointer-events: auto;
+  border: 2px solid #FFB400;
+}
+
+/* body.modal-open {
+  overflow: hidden;
+} */
