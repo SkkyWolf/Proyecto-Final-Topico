@@ -121,7 +121,9 @@ async function fetchApi() {
   const loadingElement = document.getElementById("infoContainer");
 
   if (busquedaComida == "" && !filtroSelect()) {
-    showAlert("Por favor, complete el campo de búsqueda o selecciona al menos un filtro");
+    showAlert(
+      "Por favor, complete el campo de búsqueda o selecciona al menos un filtro"
+    );
   }
 
   const apiUrl = "https://api.edamam.com/api/recipes/v2?type=public";
@@ -154,7 +156,9 @@ async function fetchApi() {
 function filtroSelect() {
   for (const key in filters) {
     const className = upperCaseChange(key);
-    const checkboxes = document.querySelectorAll(`.${className} input[type="radio"]:checked`);
+    const checkboxes = document.querySelectorAll(
+      `.${className} input[type="radio"]:checked`
+    );
     if (checkboxes.length > 0) {
       return true;
     }
@@ -176,7 +180,6 @@ function displayFood(foodData) {
     return;
   } else {
     noResultsDiv.classList.add("hidden");
-
   }
 
   foodData.hits.forEach((hit) => {
@@ -190,7 +193,9 @@ function displayFood(foodData) {
 
     foodDiv.innerHTML = `
         <div class="cardFood"> 
-            <img src="${hit.recipe.image || ""}" alt="${hit.recipe.label || ""}"/>
+            <img src="${hit.recipe.image || ""}" alt="${
+      hit.recipe.label || ""
+    }"/>
             <div class="desc">
                 <p>${hit.recipe.label}</p>
                 <ul>
@@ -222,7 +227,7 @@ function createCheckboxes() {
 
   for (const key in filters) {
     const elementoSecundario = document.createElement("div");
-    elementoSecundario.className = `filter-${key} ${upperCaseChange(key)}`;
+    elementoSecundario.className = upperCaseChange(key) + " filter";
     const label = document.createElement("label");
     label.value = key;
     label.textContent = filters[key].value;
@@ -238,11 +243,11 @@ function createCheckboxes() {
       input.type = "radio";
       input.name = key;
       input.value = inputValue;
+      input.title = nombreAMostrar;
+      label.title = nombreAMostrar;
       label.append(input, nombreAMostrar);
       input.style.marginRight = "5px";
-      label.style.color = "black";
-      label.style.fontSize = "20px";
-      label.style.fontWeight = "400";
+
       elementoSecundario.appendChild(label);
     }
   }
