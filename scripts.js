@@ -120,8 +120,8 @@ async function fetchApi() {
   const busquedaComida = document.getElementById("serachFood").value;
   const loadingElement = document.getElementById("infoContainer");
 
-  if (busquedaComida == "") {
-    showAlert("Por favor, complete el campo de búsqueda");
+  if (busquedaComida == "" && !filtroSelect()) {
+    showAlert("Por favor, complete el campo de búsqueda o selecciona al menos un filtro");
   }
 
   const apiUrl = "https://api.edamam.com/api/recipes/v2?type=public";
@@ -149,6 +149,17 @@ async function fetchApi() {
     displayFood({ count: 0 });
     console.log(error);
   }
+}
+
+function filtroSelect() {
+  for (const key in filters) {
+    const className = upperCaseChange(key);
+    const checkboxes = document.querySelectorAll(`.${className} input[type="radio"]:checked`);
+    if (checkboxes.length > 0) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function displayFood(foodData) {
