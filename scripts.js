@@ -118,9 +118,10 @@ function filterQueryString(filter) {
 
 async function fetchApi() {
   const busquedaComida = document.getElementById("serachFood").value;
+  const loadingElement = document.getElementById("infoContainer");
 
   if (busquedaComida == "") {
-    showAlert("Por favor, complete el campo de búsqueda")
+    showAlert("Por favor, complete el campo de búsqueda");
   }
 
   const apiUrl = "https://api.edamam.com/api/recipes/v2?type=public";
@@ -128,42 +129,41 @@ async function fetchApi() {
   const apiKey = "aad51e9746e7e84fff6e179fd6e8de1d";
   let fullApi = `${apiUrl}&q=${busquedaComida}&app_id=${apiID}&app_key=${apiKey}`;
   for (const key in filters) fullApi += filterQueryString(key);
+  loadingElement.classList.remove("hidden");
 
   try {
     const response = await fetch(fullApi);
-    console.log("Respuesta de la API:", response);
     if (response.status == 200) {
       const foodData = await response.json();
       displayFood(foodData);
     } else {
-      console.log("Error al obtener los datos", response.status);
+      showAlert("Error al obtener los datos: " + response.status);
+      displayFood({ count: 0 });
+      const err = await response.json();
+      console.log(err.errors);
     }
   } catch (error) {
-    console.log("Hubo un error:", error);
+    showAlert(
+      "Error! Verifique su conexión a Internet y vuelva a intentarlo más tarde."
+    );
+    displayFood({ count: 0 });
+    console.log(error);
   }
 }
 
 function displayFood(foodData) {
+  const loadingElement = document.getElementById("infoContainer");
+  loadingElement.classList.add("hidden");
   const allFoodContainer = document.getElementById("allFood");
   allFoodContainer.innerHTML = "";
 
-  if (foodData.count === 0) {
-    const containerFoods = document.querySelector('.containerFood');
-    const noResultsDiv = document.createElement("div");
-    noResultsDiv.className = "noResults";
+  const noResultsDiv = document.getElementById("noResults");
 
-    if (!document.querySelector('.noResults img')) {
-      noResultsDiv.innerHTML = `
-      <img src="img/NoHayComida4.png" style="margin: 50% auto; display: block;"/>
-      `;
-    }
-
-    containerFoods.appendChild(noResultsDiv);
+  if (!foodData.count) {
+    noResultsDiv.classList.remove("hidden");
+    return;
   } else {
-    const noResultsImage = document.querySelector('.noResults img');
-    if (noResultsImage) {
-      noResultsImage.style.display = 'none';
-    }
+    noResultsDiv.classList.add("hidden");
   }
 
   foodData.hits.forEach((hit) => {
@@ -177,8 +177,9 @@ function displayFood(foodData) {
 
     foodDiv.innerHTML = `
         <div class="cardFood"> 
-            <img src="${hit.recipe.image || ""}" alt="${hit.recipe.label || ""
-      }"/>
+            <img src="${hit.recipe.image || ""}" alt="${
+      hit.recipe.label || ""
+    }"/>
             <div class="desc">
                 <p>${hit.recipe.label}</p>
                 <ul>
@@ -279,10 +280,10 @@ function closeModal() {
 
     alertIndex--;
 
-    const showAlertCloseAll = document.querySelectorAll('.modalShowAlert');
+    const showAlertCloseAll = document.querySelectorAll(".modalShowAlert");
     showAlertCloseAll.forEach((alert, i) => {
       alert.style.top = `${i * 100}px`;
-      alert.setAttribute('data-index', i);
+      alert.setAttribute("data-index", i);
     });
   }
 }
@@ -291,4 +292,3 @@ function closeModal() {
 document.getElementById("serachFood").addEventListener("keydown", busquedaKey);
 document.getElementById("btnSearch").addEventListener("click", buttonBusqueda);
 document.addEventListener("DOMContentLoaded", createCheckboxes);
-

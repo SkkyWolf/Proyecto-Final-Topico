@@ -6,12 +6,9 @@
   font-family: sans-serif;
 }
 
-
 body {
   background-color: #f6f1ef;
 }
-
-
 
 .fondoBg {
   text-align: center;
@@ -35,7 +32,7 @@ body {
   justify-content: center;
   gap: 10rem;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .ajusTexto {
@@ -67,7 +64,7 @@ body {
   width: 655px;
   height: 52px;
   border-radius: 20px;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border: none;
   padding-left: 30px;
@@ -87,7 +84,7 @@ body {
   height: 52px;
   flex-shrink: 0;
   border-radius: 20px;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border: none;
   color: #989898;
@@ -109,7 +106,6 @@ body {
   margin-left: 50px;
 }
 
-
 .filtrar {
   height: 100%;
   width: 60%;
@@ -120,7 +116,6 @@ body {
   border-bottom: 2px solid #97db4e;
   padding-bottom: 5px;
 }
-
 
 .filDiet,
 .filHealth,
@@ -137,7 +132,7 @@ body {
 .filMealType,
 .filDishType {
   margin-top: 20px;
-  margin-right: 20px
+  margin-right: 20px;
 }
 
 .filDiet label,
@@ -210,7 +205,7 @@ body {
 
 .desc p {
   color: #97db4e;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 30px;
   margin-top: 10px;
 }
@@ -229,19 +224,19 @@ body {
 .conText {
   display: flex;
   align-items: center;
-  justify-content: space-between; 
-  padding: 20px; 
-  background-color: #ffb30031; 
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #ffb30031;
   border-radius: 15px;
 }
 
 .conText img {
-  width: 40px; 
-  margin-right: 10px; 
+  width: 40px;
+  margin-right: 10px;
 }
 
 .conText p {
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .close {
@@ -287,9 +282,14 @@ body {
   transform: translateY(100px);
   border-radius: 15px;
   pointer-events: auto;
-  border: 2px solid #FFB400;
+  border: 2px solid #ffb400;
 }
 
 /* body.modal-open {
   overflow: hidden;
 } */
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
