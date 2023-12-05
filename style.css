@@ -103,14 +103,49 @@ body {
 
 .filAllFood {
   display: grid;
-  grid-template-columns: 1fr 2.2fr;
-  margin-top: 30px;
+  grid-template-columns: 1fr 4.3fr;;
+  margin-top: 40px;
   margin-left: 50px;
 }
+
 
 .filtrar {
   height: 100%;
   width: 60%;
+}
+
+.filtrar h2{
+  color: #97db4e;
+  border-bottom: 2px solid #97db4e;
+  padding-bottom: 5px;
+}
+
+
+.filDiet, 
+.filHealth,
+.filCuisineType, 
+.filMealType, 
+.filDishType{
+  border-bottom: 2px solid #97db4e;
+  padding-bottom: 5px;
+}
+
+.filDiet,
+.filHealth,
+.filCuisineType,
+.filMealType,
+.filDishType {
+  margin-top: 20px;
+  margin-right: 20px
+}
+
+.filDiet label,
+.filHealth label,
+.filCuisineType label,
+.filMealType label,
+.filDishType label {
+  display: block;
+  margin-bottom: 5px; 
 }
 
 .containerFood {
