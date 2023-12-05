@@ -156,6 +156,121 @@ function buttonBusqueda() {
   fetchApi(busquedaComida, "");
 }
 
+function createCheckboxes() {
+  const checkboxesInfo = new Map([
+    ["fildiet", "Dieta"],
+    ["balanced", "Equilibrada"],
+    ["high-fiber", "Alta en fibra"],
+    ["high-protein", "Alta en proteínas"],
+    ["low-carb", "Baja en carbohidratos"],
+    ["low-fat", "Baja en grasas"],
+    ["low-sodium", "Baja en sodio"],
+    ["filhealth", "Salud"],
+    ["alcohol-free", "Alcohol"],
+    ["immuno-supportive", "Compatible con el sistema inmunológico"],
+    ["celery-free", "Apio"],
+    ["crustacean-free", "Crustáceos"],
+    ["dairy-free", "Lácteos"],
+    ["egg-free", "Huevos"],
+    ["fish-free", "Pescado"],
+    ["fodmap-free", "FODMAP"],
+    ["gluten-free", "Gluten"],
+    ["keto-friendly", "Amigable con la dieta keto"],
+    ["kidney-friendly", "Amigable con los riñones"],
+    ["kosher", "Kosher"],
+    ["low-potassium", "Baja en potasio"],
+    ["lupine-free", "Lupino"],
+    ["mustard-free", "Mostaza"],
+    ["vegan", "Vegana"],
+    ["filcuisineType", "Tipo de Cocina"],
+    ["american", "Americana"],
+    ["asian", "Asiática"],
+    ["british", "Británica"],
+    ["caribbean", "Caribeña"],
+    ["central europe", "Europea Central"],
+    ["chinese", "China"],
+    ["eastern europe", "Europea Oriental"],
+    ["french", "Francesa"],
+    ["greek", "Griega"],
+    ["indian", "India"],
+    ["italian", "Italiana"],
+    ["japanese", "Japonesa"],
+    ["korean", "Coreana"],
+    ["kosher", "Kosher"],
+    ["mediterranean", "Mediterránea"],
+    ["middle eastern", "Del Medio Oriente"],
+    ["nordic", "Nórdica"],
+    ["south american", "Sudamericana"],
+    ["south east asian", "Del Sudeste Asiático"],
+    ["world", "Mundial"],
+    ["filmealType", "Tipo de Comida"],
+    ["Breakfast", "Desayuno"],
+    ["Lunch", "Almuerzo"],
+    ["Dinner", "Cena"],
+    ["Snack", "Merienda"],
+    ["Teatime", "Hora del té"],
+    ["fildishType", "Tipo de Plato"],
+    ["alcohol cocktail", "Cóctel con alcohol"],
+    ["biscuits and cookies", "Galletas y cookies"],
+    ["bread", "Pan"],
+    ["cereals", "Cereales"],
+    ["condiments and sauces", "Condimentos y salsas"],
+    ["desserts", "Postres"],
+    ["drinks", "Bebidas"],
+    ["egg", "Huevo"],
+    ["ice cream and custard", "Helado y natillas"],
+    ["main course", "Plato principal"],
+    ["pancake", "Panqueque"],
+    ["pasta", "Pasta"],
+    ["pastry", "Pastelería"],
+    ["pies and tarts", "Pasteles y tartas"],
+    ["pizza", "Pizza"],
+    ["preps", "Preparativos"],
+    ["salad", "Ensalada"],
+    ["sandwiches", "Sándwiches"],
+    ["seafood", "Mariscos"],
+    ["side dish", "Acompañamiento"],
+    ["soup", "Sopa"],
+    ["special occasions", "Ocasiones especiales"],
+    ["starter", "Entrada"],
+    ["sweets", "Dulces"],
+  ]);
+
+  const elementoPrincipal = document.getElementById("listChec");
+  let elementoSecundario = null;
+  for (const unitInfo of checkboxesInfo) {
+    const key = unitInfo[0];
+    const value = unitInfo[1];
+
+    if (key.startsWith("fil")) {
+      if (elementoSecundario) elementoPrincipal.appendChild(elementoSecundario);
+      elementoSecundario = document.createElement("div");
+      elementoSecundario.className = upperCaseChange(key);
+      const label = document.createElement("label");
+      label.value = key.substring(3);
+      label.textContent = value;
+      elementoSecundario.appendChild(label);
+    } else {
+      const label = document.createElement("label");
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = key;
+      label.append(input, value);
+      elementoSecundario.appendChild(label);
+    }
+  }
+}
+
+function upperCaseChange(string) {
+  return (
+    string.substring(0, 3) +
+    string.charAt(3).toUpperCase() +
+    string.substring(4)
+  );
+}
+
 document.getElementById("serachFood").addEventListener("keydown", busquedaKey);
 
 document.getElementById("btnSearch").addEventListener("click", buttonBusqueda);
+
+document.addEventListener("DOMContentLoaded", createCheckboxes);
