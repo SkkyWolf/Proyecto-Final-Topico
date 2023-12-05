@@ -104,7 +104,7 @@ const filters = {
 function filterQueryString(filter) {
   const className = upperCaseChange(filter);
   const everyCheckbox = document.querySelectorAll(
-    `.${className} input[type="checkbox"]`
+    `.${className} input[type="radio"]`
   );
   const checkedCheckboxes = Array.from(everyCheckbox).filter(
     (checkbox) => checkbox.checked
@@ -175,15 +175,11 @@ function displayFood(foodData) {
 }
 
 function busquedaKey(event) {
-  if (event.keyCode === 13) {
-    const busquedaComida = document.getElementById("serachFood").value;
-    fetchApi(busquedaComida, "");
-  }
+  if (event.keyCode === 13) fetchApi();
 }
 
 function buttonBusqueda() {
-  const busquedaComida = document.getElementById("serachFood").value;
-  fetchApi(busquedaComida, "");
+  fetchApi();
 }
 
 function createCheckboxes() {
@@ -205,7 +201,8 @@ function createCheckboxes() {
 
       const label = document.createElement("label");
       const input = document.createElement("input");
-      input.type = "checkbox";
+      input.type = "radio";
+      input.name = key;
       input.value = inputValue;
       label.append(input, nombreAMostrar);
       elementoSecundario.appendChild(label);
@@ -217,8 +214,7 @@ function upperCaseChange(string) {
   return "fil" + string.charAt(0).toUpperCase() + string.substring(1);
 }
 
+// EVENTS
 document.getElementById("serachFood").addEventListener("keydown", busquedaKey);
-
 document.getElementById("btnSearch").addEventListener("click", buttonBusqueda);
-
 document.addEventListener("DOMContentLoaded", createCheckboxes);
