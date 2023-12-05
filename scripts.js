@@ -104,7 +104,7 @@ const filters = {
 function filterQueryString(filter) {
   const className = upperCaseChange(filter);
   const everyCheckbox = document.querySelectorAll(
-    `.${className}>input[type="checkbox"]`
+    `.${className} input[type="checkbox"]`
   );
   const checkedCheckboxes = Array.from(everyCheckbox).filter(
     (checkbox) => checkbox.checked
@@ -123,12 +123,7 @@ async function fetchApi() {
   const apiID = "8f1264ad";
   const apiKey = "aad51e9746e7e84fff6e179fd6e8de1d";
   let fullApi = `${apiUrl}&q=${busquedaComida}&app_id=${apiID}&app_key=${apiKey}`;
-
-  for (const key in filters) {
-    fullApi += filterQueryString(key);
-  }
-
-  console.log(fullApi);
+  for (const key in filters) fullApi += filterQueryString(key);
 
   try {
     const response = await fetch(fullApi);
