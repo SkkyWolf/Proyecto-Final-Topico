@@ -1,45 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto Final Topico</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyecto Final Topico</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-
-  <div class="fondoBg">
-    <img src="img/svg-formatter-beautifier.png" alt="iconFood" width="300px">
-    <div class="expFood">
-      <img src="img/pngwing.com.png" alt="nutricion" class="imgNut">
-      <div class="ajusTexto">
-        <h2>Cocina Saludable</h2>
-        <p>Encuentra el equilibrio perfecto entre delicioso y nutritivo en cada bocado. Nuestra cocina se centra en
-          hacer que cada plato sea delicioso y al mismo tiempo lleno de los nutrientes que tu cuerpo necesita.
-          Queremos que disfrutes cada comida mientras te aseguras de obtener los beneficios para la salud que buscas.
-        </p>
+  <body>
+    <div class="fondoBg">
+      <img
+        src="img/svg-formatter-beautifier.png"
+        alt="iconFood"
+        width="300px"
+      />
+      <div class="expFood">
+        <img src="img/pngwing.com.png" alt="nutricion" class="imgNut" />
+        <div class="ajusTexto">
+          <h2>Cocina Saludable</h2>
+          <p>
+            Encuentra el equilibrio perfecto entre delicioso y nutritivo en cada
+            bocado. Nuestra cocina se centra en hacer que cada plato sea
+            delicioso y al mismo tiempo lleno de los nutrientes que tu cuerpo
+            necesita. Queremos que disfrutes cada comida mientras te aseguras de
+            obtener los beneficios para la salud que buscas.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="searchInp">
-    <input type="text" id="serachFood" placeholder="Buscar por comida">
-    <button>Buscar</button>
-  </div>
-
-  <div class="filAllFood">
-    <div class="filtrar">
-
+    <div class="searchInp">
+      <input type="text" id="serachFood" placeholder="Buscar por comida" />
+      <button id="btnSearch">Buscar</button>
     </div>
-    <div class="containerFood">
-      <div id="allFood"></div>
+
+    <div class="filAllFood">
+      <div class="filtrar">
+        <h2>FILTROS</h2>
+        <div class="listChec">
+          <div class="filDiet">
+            <label value="diet">Dieta</label>
+            <label><input type="checkbox" value="balanced" />Equilibrada</label>
+            <label
+              ><input type="checkbox" value="high-fiber" />Alta en fibra</label
+            >
+            <label
+              ><input type="checkbox" value="high-protein" />Alta en
+              proteínas</label
+            >
+            <label
+              ><input type="checkbox" value="low-carb" />Baja en
+              carbohidratos</label
+            >
+            <label
+              ><input type="checkbox" value="low-fat" />Baja en grasas</label
+            >
+            <label
+              ><input type="checkbox" value="low-sodium" />Baja en sodio</label
+            >
+          </div>
+
+          <div class="filHealth">
+            <label value="health">Salud</label>
+            <label><input type="checkbox" value="alcohol-free" />Alcohol</label>
+            <label
+              ><input type="checkbox" value="immuno-supportive" />Compatible con
+              el sistema inmunológico</label
+            >
+            <label><input type="checkbox" value="celery-free" />Apio</label>
+            <label
+              ><input
+                type="checkbox"
+                value="crustacean-free"
+              />Crustáceos</label
+            >
+            <label><input type="checkbox" value="dairy-free" />Lácteos</label>
+            <label><input type="checkbox" value="egg-free" />Huevos</label>
+            <label><input type="checkbox" value="fish-free" />Pescado</label>
+            <label><input type="checkbox" value="fodmap-free" />FODMAP</label>
+            <label><input type="checkbox" value="gluten-free" />Gluten</label>
+            <label
+              ><input type="checkbox" value="keto-friendly" />Amigable con la
+              dieta keto</label
+            >
+            <label
+              ><input type="checkbox" value="kidney-friendly" />Amigable con los
+              riñones</label
+            >
+            <label><input type="checkbox" value="kosher" />Kosher</label>
+            <label
+              ><input type="checkbox" value="low-potassium" />Baja en
+              potasio</label
+            >
+            <label><input type="checkbox" value="lupine-free" />Lupino</label>
+            <label><input type="checkbox" value="mustard-free" />Mostaza</label>
+            <label><input type="checkbox" value="vegan" />Vegana</label>
+          </div>
+
+          <div class="filCuisineType">
+            <label value="cuisineType">Tipo de Cocina</label>
+            <label><input type="checkbox" value="american" />Americana</label>
+            <label><input type="checkbox" value="asian" />Asiática</label>
+            <label><input type="checkbox" value="british" />Británica</label>
+            <label><input type="checkbox" value="caribbean" />Caribeña</label>
+            <label
+              ><input type="checkbox" value="central europe" />Europea
+              Central</label
+            >
+            <label><input type="checkbox" value="chinese" />China</label>
+            <label
+              ><input type="checkbox" value="eastern europe" />Europea
+              Oriental</label
+            >
+            <label><input type="checkbox" value="french" />Francesa</label>
+            <label><input type="checkbox" value="greek" />Griega</label>
+            <label><input type="checkbox" value="indian" />India</label>
+            <label><input type="checkbox" value="italian" />Italiana</label>
+            <label><input type="checkbox" value="japanese" />Japonesa</label>
+            <label><input type="checkbox" value="korean" />Coreana</label>
+            <label><input type="checkbox" value="kosher" />Kosher</label>
+            <label
+              ><input
+                type="checkbox"
+                value="mediterranean"
+              />Mediterránea</label
+            >
+            <label
+              ><input type="checkbox" value="middle eastern" />Del Medio
+              Oriente</label
+            >
+            <label><input type="checkbox" value="nordic" />Nórdica</label>
+            <label
+              ><input
+                type="checkbox"
+                value="south american"
+              />Sudamericana</label
+            >
+            <label
+              ><input type="checkbox" value="south east asian" />Del Sudeste
+              Asiático</label
+            >
+            <label><input type="checkbox" value="world" />Mundial</label>
+          </div>
+
+          <div class="filMealType">
+            <label value="mealType">Tipo de Comida</label>
+            <label><input type="checkbox" value="Breakfast" />Desayuno</label>
+            <label><input type="checkbox" value="Lunch" />Almuerzo</label>
+            <label><input type="checkbox" value="Dinner" />Cena</label>
+            <label><input type="checkbox" value="Snack" />Merienda</label>
+            <label><input type="checkbox" value="Teatime" />Hora del té</label>
+          </div>
+
+          <div class="filDishType">
+            <label value="dishType">Tipo de Plato</label>
+            <label
+              ><input type="checkbox" value="alcohol cocktail" />Cóctel con
+              alcohol</label
+            >
+            <label
+              ><input type="checkbox" value="biscuits and cookies" />Galletas y
+              cookies</label
+            >
+            <label><input type="checkbox" value="bread" />Pan</label>
+            <label><input type="checkbox" value="cereals" />Cereales</label>
+            <label
+              ><input
+                type="checkbox"
+                value="condiments and sauces"
+              />Condimentos y salsas</label
+            >
+            <label><input type="checkbox" value="desserts" />Postres</label>
+            <label><input type="checkbox" value="drinks" />Bebidas</label>
+            <label><input type="checkbox" value="egg" />Huevo</label>
+            <label
+              ><input type="checkbox" value="ice cream and custard" />Helado y
+              natillas</label
+            >
+            <label
+              ><input type="checkbox" value="main course" />Plato
+              principal</label
+            >
+            <label><input type="checkbox" value="pancake" />Panqueque</label>
+            <label><input type="checkbox" value="pasta" />Pasta</label>
+            <label><input type="checkbox" value="pastry" />Pastelería</label>
+            <label
+              ><input type="checkbox" value="pies and tarts" />Pasteles y
+              tartas</label
+            >
+            <label><input type="checkbox" value="pizza" />Pizza</label>
+            <label><input type="checkbox" value="preps" />Preparativos</label>
+            <label><input type="checkbox" value="salad" />Ensalada</label>
+            <label
+              ><input type="checkbox" value="sandwiches" />Sándwiches</label
+            >
+            <label><input type="checkbox" value="seafood" />Mariscos</label>
+            <label
+              ><input type="checkbox" value="side dish" />Acompañamiento</label
+            >
+            <label><input type="checkbox" value="soup" />Sopa</label>
+            <label
+              ><input type="checkbox" value="special occasions" />Ocasiones
+              especiales</label
+            >
+            <label><input type="checkbox" value="starter" />Entrada</label>
+            <label><input type="checkbox" value="sweets" />Dulces</label>
+          </div>
+        </div>
+      </div>
+      <div class="containerFood">
+        <div id="infoContainer"></div>
+        <div id="allFood"></div>
+      </div>
     </div>
-  </div>
 
-
-  <script src="./scripts.js"></script>
-</body>
-
+    <script src="./scripts.js"></script>
+  </body>
 </html>
