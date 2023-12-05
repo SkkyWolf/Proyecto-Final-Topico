@@ -44,7 +44,7 @@ body {
 
 .ajusTexto h2 {
   text-align: start;
-  font-size: 4rem;
+  font-size: 3rem;
   font-family: 'Bebas Neue', sans-serif;
 }
 
@@ -53,6 +53,7 @@ body {
   margin-top: 10px;
   line-height: 1.6;
   font-family: 'Mukta', sans-serif;
+  font-size: 18px;
 }
 
 .searchInp {
@@ -150,6 +151,32 @@ body {
 
 .filter-diet {
   color: #97db4e;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.filter-health {
+  color: #97db4e;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.filter-cuisineType {
+  color: #97db4e;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.filter-mealType {
+  color: #97db4e;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.filter-dishType {
+  color: #97db4e;
+  font-size: 25px;
+  font-weight: 500;
 }
 
 .containerFood {
@@ -167,11 +194,12 @@ body {
 .cardFood {
   background-color: white;
   width: 320px;
-  height: 450px;
+  height: auto;
   text-align: center;
   padding-top: 20px;
   box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.25);
   border-radius: 36px;
+  padding: 22px;
 
 }
 

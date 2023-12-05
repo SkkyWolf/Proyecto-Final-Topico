@@ -229,6 +229,8 @@ function createCheckboxes() {
       label.append(input, nombreAMostrar);
       input.style.marginRight = "5px";
       label.style.color = "black";
+      label.style.fontSize = "20px";
+      label.style.fontWeight = "400";
       elementoSecundario.appendChild(label);
     }
   }
