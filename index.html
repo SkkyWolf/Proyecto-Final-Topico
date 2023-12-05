@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto Final Topico</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <div class="fondoBg">
-      <img src="img/logoNutriFood.png" alt="iconFood" width="300px" />
-      <div class="expFood">
-        <img src="img/pngwing.com.png" alt="nutricion" class="imgNut" />
-        <div class="ajusTexto">
-          <h2>Cocina Saludable</h2>
-          <p>
-            Encuentra el equilibrio perfecto entre delicioso y nutritivo en cada
-            bocado. Nuestra cocina se centra en hacer que cada plato sea
-            delicioso y al mismo tiempo lleno de los nutrientes que tu cuerpo
-            necesita. Queremos que disfrutes cada comida mientras te aseguras de
-            obtener los beneficios para la salud que buscas.
-          </p>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto Final Topico</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="fondoBg">
+    <img src="img/logoNutriFood.png" alt="iconFood" width="300px" />
+    <div class="expFood">
+      <img src="img/pngwing.com.png" alt="nutricion" class="imgNut" />
+      <div class="ajusTexto">
+        <h2>Cocina Saludable</h2>
+        <p>
+          Encuentra el equilibrio perfecto entre delicioso y nutritivo en cada
+          bocado. Nuestra cocina se centra en hacer que cada plato sea
+          delicioso y al mismo tiempo lleno de los nutrientes que tu cuerpo
+          necesita. Queremos que disfrutes cada comida mientras te aseguras de
+          obtener los beneficios para la salud que buscas.
+        </p>
       </div>
     </div>
+  </div>
 
-    <div class="searchInp">
-      <input type="text" id="serachFood" placeholder="Buscar por comida" />
-      <button id="btnSearch">Buscar</button>
+  <div class="searchInp">
+    <input type="text" id="serachFood" placeholder="Buscar por comida" />
+    <button id="btnSearch">Buscar</button>
+  </div>
+
+  <div class="filAllFood">
+    <div class="filtrar">
+      <h2>FILTROS</h2>
+      <div class="listChec" id="listChec"></div>
     </div>
-
-    <div class="filAllFood">
-      <div class="filtrar">
-        <h2>FILTROS</h2>
-        <div class="listChec" id="listChec"></div>
+    <div class="containerFood">
+      <div id="infoContainer" class="hidden">
+        <section class="talign-center">
+          <div class="spinner icon-spinner-2" aria-hidden="true"></div>
+        </section>
       </div>
-      <div class="containerFood">
-        <div id="infoContainer" class="hidden">Buscando...</div>
-        <div id="allFood"></div>
-        <div id="noResults" class="noResults hidden">
-          <img src="img/NoHayComida2.png" style="display: block" />
-        </div>
+      <div id="allFood"></div>
+      <div id="noResults" class="noResults hidden">
+        <img src="img/NoHayComida2.png" style="display: block; margin: auto;" />
       </div>
     </div>
+  </div>
 
-    <script src="./scripts.js"></script>
-  </body>
+  <script src="./scripts.js"></script>
+</body>
+
 </html>

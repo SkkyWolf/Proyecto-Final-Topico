@@ -161,9 +161,11 @@ function displayFood(foodData) {
 
   if (!foodData.count) {
     noResultsDiv.classList.remove("hidden");
+
     return;
   } else {
     noResultsDiv.classList.add("hidden");
+
   }
 
   foodData.hits.forEach((hit) => {
@@ -177,9 +179,7 @@ function displayFood(foodData) {
 
     foodDiv.innerHTML = `
         <div class="cardFood"> 
-            <img src="${hit.recipe.image || ""}" alt="${
-      hit.recipe.label || ""
-    }"/>
+            <img src="${hit.recipe.image || ""}" alt="${hit.recipe.label || ""}"/>
             <div class="desc">
                 <p>${hit.recipe.label}</p>
                 <ul>
