@@ -124,6 +124,8 @@ async function fetchApi() {
     showAlert(
       "Por favor, complete el campo de búsqueda o selecciona al menos un filtro"
     );
+    displayFood({ count: 0 });
+    return;
   }
 
   const apiUrl = "https://api.edamam.com/api/recipes/v2?type=public";
